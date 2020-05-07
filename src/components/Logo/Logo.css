@@ -1,0 +1,15 @@
+.Logo {
+  vertical-align: top;
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+}
+
+.Logo .image{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 30%;
+  height: 45%%;
+}
