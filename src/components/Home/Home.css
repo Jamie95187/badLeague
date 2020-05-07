@@ -1,11 +1,11 @@
-.App {
+.Home {
   vertical-align: top;
   display: inline-block;
   text-align: center;
   width: 100%;
 }
 
-.App .title {
+.Home .title {
   display: block;
   color: blue;
   font-size: 38pt;

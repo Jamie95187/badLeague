@@ -8,7 +8,7 @@ class Logo extends Component {
 
   render() {
     return (
-      <Link to='/home'>
+      <Link to='/start'>
         <div className="Logo">
           <img
             className="image"

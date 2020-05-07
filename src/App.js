@@ -1,13 +1,23 @@
 import React, { Component } from 'react';
-import Logo from './components/Logo/Logo';
-import './App.css';
+import { Route, Switch } from 'react-router-dom';
+
+import Home from './components/Home/Home';
+import Start from './components/Start/Start';
 
 class App extends Component {
+
   render() {
+
+    let routes = (
+      <Switch>
+        <Route path="/" exact component={Home} />
+        <Route path="/start" component={Start} />
+      </Switch>
+    )
+
     return (
-      <div className="App">
-        <h2 className='title'> Welcome to the league page </h2>
-        <Logo />
+      <div>
+        {routes}
       </div>
     )
   }
