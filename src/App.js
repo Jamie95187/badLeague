@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import Layout from './containers/Layout/Layout';
+// import Layout from './containers/Layout/Layout';
 import Home from './components/Home/Home';
 import Start from './components/Start/Start';
 import About from './components/About/About';
 import Leagues from './components/Leagues/Leagues';
 import Clubs from './components/Clubs/Clubs';
+import HeaderLayout from './hoc/HeaderLayout';
 
 class App extends Component {
 
@@ -14,19 +15,17 @@ class App extends Component {
 
     let routes = (
       <Switch>
-        <Route path="/start" component={Start} />
-        <Route path="/about" component={About} />
-        <Route path="/leagues" component={Leagues} />
-        <Route path="/clubs" component={Clubs} />
+        <HeaderLayout path="/start" component={Start} />
+        <HeaderLayout path="/about" component={About} />
+        <HeaderLayout path="/leagues" component={Leagues} />
+        <HeaderLayout path="/clubs" component={Clubs} />
+        <Route path="/" exact component={Home} />
       </Switch>
     )
 
     return (
       <div>
-        <Route path="/" exact component={Home} />
-        <Layout>
-          {routes}
-        </Layout>
+        {routes}
       </div>
     )
   }
