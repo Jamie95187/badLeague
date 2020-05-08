@@ -1,12 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
+import classes from './Toolbar.css';
+import NavigationItems from '../NavigationItems/NavigationItems';
 
-class Toolbar extends Component {
-  render(){
-    return (
-      <header>
-      </header>
-    )
-  }
-}
+const toolbar = (props) => (
+  <header className={classes.toolbar}>
+    <NavigationItems />
+  </header>
+);
 
-export default Toolbar;
+export default toolbar;
