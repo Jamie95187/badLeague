@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const start = () => {
-  return(
-    <div>
-      <h1>START PAGE</h1>
-    </div>
-  )
-}
+class Start extends Component {
 
-export default start;
+  render() {
+    return (
+      <div>
+        <h1>Start Page</h1>
+        <h2>Today's Fixtures</h1>
+        <h2>Leagues</h2>
+      </div>
+    )
+  }
+};
+
+export default Start;
