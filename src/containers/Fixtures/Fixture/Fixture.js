@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from  'react';
 
 class Fixture extends Component {
   state = {
@@ -10,9 +10,11 @@ class Fixture extends Component {
   render() {
     return (
       <div>
-        <p>{this.state.homeClubName} vs {this.state.awayClubName}</p>
-        <br />
-        At {this.state.homeVenue}
+        <p>
+          {this.state.homeClubName} vs {this.state.awayClubName}
+          <br/>
+          At {this.state.homeVenue}
+        </p>
       </div>
     )
   }
