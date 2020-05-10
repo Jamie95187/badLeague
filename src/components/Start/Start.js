@@ -9,6 +9,7 @@ class Start extends Component {
         <h2>Today's Fixtures</h2>
         <Fixtures/>
         <h2>Leagues</h2>
+        <Leagues />
       </div>
     )
   }
