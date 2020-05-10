@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Fixtures from '../../containers/Fixtures/Fixtures';
+import Leagues from '../../containers/Leagues/Leagues';
 class Start extends Component {
 
   render() {

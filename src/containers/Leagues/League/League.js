@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 class League extends Component {
 
-  state {
-    league: 'testMensLeague1'
+  state = {
+    league: 'testMensLeague1',
     leagueContacts: {
       manager1: 'testManager1',
       manager2: 'testManager2'
