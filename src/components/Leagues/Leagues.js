@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
 class Leagues extends Component {
-  componentDidMount(){
-    console.log("Leagues Mounted");
-  }
+  // componentDidMount(){
+  //   console.log("Leagues Mounted");
+  // }
   render() {
     return(
       <div>

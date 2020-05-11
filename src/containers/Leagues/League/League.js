@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import LeagueLink from '../LeagueLink/LeagueLink';
 
 class League extends Component {
 
@@ -12,9 +13,11 @@ class League extends Component {
 
   render() {
     return (
-      <div>
-        {this.state.league}
-      </div>
+      <li>
+        <LeagueLink
+          link={'/league/' + this.state.league}
+          name={this.state.league}/>
+      </li>
     )
   }
 }

@@ -4,9 +4,9 @@ import League from './League/League';
 class Leagues extends Component {
   render () {
     return (
-      <div>
+      <ul>
         <League />
-      </div>
+      </ul>
     )
   }
 }
