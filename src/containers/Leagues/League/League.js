@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import LeagueLink from '../LeagueLink/LeagueLink';
+// import LeagueLink from '../LeagueLink/LeagueLink';
+import { NavLink } from 'react-router-dom';
 
 class League extends Component {
 
@@ -14,9 +15,8 @@ class League extends Component {
   render() {
     return (
       <li>
-        <LeagueLink
-          link={'/league/' + this.state.league}
-          name={this.state.league}/>
+        <NavLink
+          to={'/league/' + this.state.league}>{this.state.league}</NavLink>
       </li>
     )
   }
