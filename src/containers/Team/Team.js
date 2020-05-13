@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 class Team extends Component {
   state = {
-    teamName: testMensDiv1Team,
-    code: tmd1
+    teamName: 'testMensDiv1Team',
+    code: 'tmd1'
   }
 
   render() {

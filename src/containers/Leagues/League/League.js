@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import LeagueLink from '../LeagueLink/LeagueLink';
 import { NavLink } from 'react-router-dom';
 
 class League extends Component {
