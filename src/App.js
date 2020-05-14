@@ -19,7 +19,6 @@ class App extends Component {
         <HeaderLayout path="/about" component={About} />
         <HeaderLayout path="/clubs" component={Clubs} />
         <HeaderLayout path="/leagues" component={Leagues} />
-        <HeaderLayout path="/leagues/testMensLeague1" component={LeagueTable} />
         <Route path="/" exact component={Home} />
       </Switch>
     )

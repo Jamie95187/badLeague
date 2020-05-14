@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Fixtures from '../../containers/Fixtures/Fixtures';
-import Leagues from '../../containers/Leagues/Leagues';
+import Leagues from '../../components/Leagues/Leagues';
 class Start extends Component {
 
   render() {
@@ -8,9 +8,9 @@ class Start extends Component {
       <div>
         <h1>Start Page</h1>
         <h2>Today's Fixtures</h2>
-        <Fixtures/>
+          <Fixtures/>
         <h2>Leagues</h2>
-        <Leagues />
+          <Leagues />
       </div>
     )
   }

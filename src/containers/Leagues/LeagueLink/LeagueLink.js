@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 const leagueLink = (props) => (
     <NavLink
       to={props.link}
