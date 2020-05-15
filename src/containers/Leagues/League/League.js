@@ -15,7 +15,7 @@ class League extends Component {
     return (
       <li>
         <NavLink
-          to={'/league/' + this.state.league}>{this.state.league}</NavLink>
+          to={'/leagues?name=' + this.state.league}>{this.state.league}</NavLink>
       </li>
     )
   }

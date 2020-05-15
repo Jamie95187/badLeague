@@ -123,7 +123,6 @@ class LeagueTable extends Component {
   render () {
     return (
       <div>
-        Hello
         <Table
           teams={[
             { id: 1, division: '1', team: 'testMensTeam1', home: '2', away: '1', total: '3', lost: '10', gamesHome: '20', gamesAway: '12', gamesWonTotal: '32', tiesWon: '3', conc: '0', fine: '0', points: '32'}
