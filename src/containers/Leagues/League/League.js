@@ -3,19 +3,30 @@ import { NavLink } from 'react-router-dom';
 
 class League extends Component {
 
-  state = {
-    league: 'testMensLeague1',
-    leagueContacts: {
-      manager1: 'testManager1',
-      manager2: 'testManager2'
-    }
-  }
+  state =
+    [
+      {
+        league: 'testMensLeague1',
+        leagueContacts: {
+          manager1: 'testManager1',
+          manager2: 'testManager2'
+        }
+      },
+      {
+        league: 'testMensLeague2',
+        leagueContacts: {
+          manager1: 'testManager1',
+          manager2: 'testManager2'
+        }
+      }
+    ]
+
 
   render() {
     return (
       <li>
         <NavLink
-          to={'/leagues?name=' + this.state.league}>{this.state.league}</NavLink>
+          to={'/leagues?search=' + this.state[0].league}>{this.state[0].league}</NavLink>
       </li>
     )
   }
