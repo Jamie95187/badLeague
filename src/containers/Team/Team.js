@@ -9,7 +9,7 @@ class Team extends Component {
   render() {
     return (
       <div
-        teamCode={this.state.code}>{this.state.teamName}</div>
+        teamcode={this.state.code}>{this.state.teamName}</div>
     )
   }
 }

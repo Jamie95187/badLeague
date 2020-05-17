@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import League from '../../containers/Leagues/League/League';
-import { Route, Link, withRouter } from 'react-router-dom';
+import { Route, Link, withRouter, useLocation } from 'react-router-dom';
 import LeagueTable from './LeagueTable/LeagueTable';
 import queryString from 'query-string';
 
@@ -33,9 +33,11 @@ class Leagues extends Component {
 };
 
 const Routes = ({ location }) => {
-  console.log(location)
   const parsed = queryString.parse(location.search);
   const target = itemsObj.find(o => o.search === parsed.league);
+  if (location.search === '' ) {
+    return null;
+  }
   return (
     <Route path={`/leagues`} component={target ? target.component : LeagueTable } />
   );
