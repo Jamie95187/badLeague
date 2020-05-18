@@ -7,6 +7,8 @@ import queryString from 'query-string';
 const First = () => <span style={{ fontSize: "24px" }}>First League</span>;
 const Second = () => <span style={{ fontSize: "24px" }}>Second League</span>;
 
+// Replace with the request to the server to retrieve the teams on the league Table
+
 const itemsObj = [
   { title: "FirstLeague", search: "first", component: LeagueTable },
   { title: "SecondLeague", search: "second", component: Second }
