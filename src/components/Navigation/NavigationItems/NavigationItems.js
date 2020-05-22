@@ -8,6 +8,7 @@ const navigationItems = (props) => (
     <NavigationItem link='/leagues'>Leagues</NavigationItem>
     <NavigationItem link='/clubs'>Clubs</NavigationItem>
     <NavigationItem link='/about'>About</NavigationItem>
+    <NavigationItem link='/account'>Account</NavigationItem>
   </ul>
 );
 

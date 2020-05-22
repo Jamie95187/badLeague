@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Button from '../../components/UI/Button/Button';
 import Spinner from '../../components/UI/Spinner/Spinner';
+import Input from '../../components/UI/Input/Input';
+import { updateObject, checkValidity } from '../../shared/utility';
 
 class TeamBuilder extends Component {
   state = {
@@ -48,7 +50,7 @@ class TeamBuilder extends Component {
     let isValid = true;
 
     if (rules.required) {
-      isValid = valid.trim() !== '' && isValid;
+      isValid = value.trim() !== '' && isValid;
     }
 
     if (rules.minLength) {
@@ -82,12 +84,12 @@ class TeamBuilder extends Component {
     });
 
     const updatedTeamForm = updateObject(this.state.teamForm, {
-      [inputIdentifier]: updatedFormElement;
+      [inputIdentifier]: updatedFormElement
     });
 
     updatedTeamForm[inputIdentifier] = updatedFormElement;
 
-    let fromIsValid = true;
+    let formIsValid = true;
     for (let inputIdentifier in updatedTeamForm) {
       formIsValid = updatedTeamForm[inputIdentifier].valid && formIsValid;
     }

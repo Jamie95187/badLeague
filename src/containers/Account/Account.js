@@ -28,10 +28,10 @@ class Account extends Component {
         </Modal>
         <h1>Accounts Page</h1>
         <button
-          onClick={this.openTeamForm(form)}
+          onClick={() => this.openTeamForm(form)}
           >Add Team</button>
         <button
-          onClick={this.openClubForm(form)}
+          onClick={() => this.openClubForm(form)}
           >Add Club</button>
       </Aux>
     )
