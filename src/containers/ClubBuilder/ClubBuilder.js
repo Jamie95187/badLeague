@@ -2,27 +2,14 @@ import React, { Component } from 'react';
 import Button from '../../components/UI/Button/Button';
 import Spinner from '../../components/UI/Spinner/Spinner';
 
-class TeamBuilder extends Component {
+class ClubBuilder extends Component {
   state = {
-    teamForm: {
-      teamName: {
-        elementType: 'input',
-        elementConfig: {
-          type: 'text',
-          placeholder: 'Your team name'
-        },
-        value: '',
-        validation: {
-          required: true
-        },
-        valid: false,
-        touched: false
-      },
+    clubForm: {
       clubName: {
         elementType: 'input',
         elementConfig: {
           type: 'text',
-          placeholder: 'Your team name'
+          placeholder: 'Your club name'
         },
         value: '',
         validation: {
@@ -31,14 +18,31 @@ class TeamBuilder extends Component {
         valid: false,
         touched: false
       },
-      division: {
-        elementType: 'select',
+      address: {
+        elementType: 'input',
         elementConfig: {
-          options: [
-            {value: 'mensDivOne', displayValue: 'Mens Div One'},
-            {value: 'mensDivTwo', displayValue: 'Mens Div Two'}
-          ]
-        }
+          type: 'text',
+          placeholder: 'The venue your club plays at'
+        },
+        value: '',
+        validation: {
+          required: true
+        },
+        valid: false,
+        touched: false
+      },
+      contactInfo: {
+        elementType: 'input',
+        elementConfig: {
+          type: 'text',
+          placeholder: 'Contact Info'
+        },
+        value: '',
+        validation: {
+          required: true
+        },
+        valid: false,
+        touched: false
       },
       formIsValid: false
     }
@@ -61,11 +65,11 @@ class TeamBuilder extends Component {
     return isValid;
   }
 
-  teamHandler = ( event ) => {
+  clubHandler = ( event ) => {
     event.preventDefault();
     const formData = {};
-    for ( let formElementIdentifier in this.state.teamForm) {
-      formData[formElementIdentifier] = this.state.teamForm[formElementIdentifier].value;
+    for ( let formElementIdentifier in this.state.clubForm) {
+      formData[formElementIdentifier] = this.state.clubForm[formElementIdentifier].value;
     }
     const team = {
 
@@ -75,13 +79,13 @@ class TeamBuilder extends Component {
   }
 
   inputChangedHandler = (event, inputIdentifier) => {
-    const updatedFormElement = updateObject(this.state.teamForm[inputIdentifier], {
+    const updatedFormElement = updateObject(this.state.clubForm[inputIdentifier], {
       value: event.target.value,
-      valid: checkValidity(event.target.value, this.state.teamForm[inputIdentifier].validation),
+      valid: checkValidity(event.target.value, this.state.clubForm[inputIdentifier].validation),
       touched: true
     });
 
-    const updatedTeamForm = updateObject(this.state.teamForm, {
+    const updatedTeamForm = updateObject(this.state.clubForm, {
       [inputIdentifier]: updatedFormElement;
     });
 
@@ -91,19 +95,19 @@ class TeamBuilder extends Component {
     for (let inputIdentifier in updatedTeamForm) {
       formIsValid = updatedTeamForm[inputIdentifier].valid && formIsValid;
     }
-    this.setState({teamForm: updatedTeamForm, formIsValid: formIsValid});
+    this.setState({clubForm: updatedTeamForm, formIsValid: formIsValid});
   }
 
   render (){
     const formElementsArray = [];
-    for (let key in this.state.teamForm){
+    for (let key in this.state.clubForm){
       formElementsArray.push({
         id: key,
-        config: this.state.teamForm[key]
+        config: this.state.clubForm[key]
       })
     }
     let form = (
-      <form onSubmit={this.teamHandler}>
+      <form onSubmit={this.clubHandler}>
         {formElementsArray.map(formElement => (
           <Input
             key={formElement.id}
@@ -124,11 +128,11 @@ class TeamBuilder extends Component {
 
     return(
       <div>
-        <h4>Enter your Team's details</h4>
+        <h4>Enter your Club's details</h4>
         {form}
       </div>
     )
   }
 }
 
-export default TeamBuilder;
+export default ClubBuilder;
