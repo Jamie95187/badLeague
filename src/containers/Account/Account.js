@@ -11,21 +11,27 @@ class Account extends Component {
 
   openTeamForm = (form) => {
     this.setState({ building: true });
-    form = <TeamBuilder />;
+    form = (
+      <div>
+        <TeamBuilder />
+      </div>
+    )
+    console.log("openTeamForm clicked!");
   }
 
   openClubForm = (form) => {
     this.setState({ building: true });
-    form = <ClubBuilder />;
+    form =(
+      <div>
+        <ClubBuilder />
+      </div>
+    )
   }
 
   render(){
     let form = null;
     return (
       <Aux>
-        <Modal show={true}>
-          {TeamBuilder}
-        </Modal>
         <h1>Accounts Page</h1>
         <button
           onClick={() => this.openTeamForm(form)}
@@ -33,6 +39,10 @@ class Account extends Component {
         <button
           onClick={() => this.openClubForm(form)}
           >Add Club</button>
+        <Modal show={this.state.building}>
+          Henlo
+          {form}
+        </Modal>
       </Aux>
     )
   }
