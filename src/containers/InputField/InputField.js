@@ -13,19 +13,10 @@ class InputField extends Component {
     };
   }
 
-  componentDidMount () {
-    console.log(this.props);
-  }
-
-  // Print email and name when button is pressed
-  onSubmit () {
-    console.log(this.state.value);
-  }
-
   changeValue(event) {
     const value = event.target.value;
     this.setState({ value, error: "" });
-    console.log(this.state.value)
+    // console.log(this.state.value)
   }
 
   // Pressing 'Enter' auto completes the field into the predicted value
@@ -56,7 +47,6 @@ class InputField extends Component {
           onKeyPress={this.handleKeyPress.bind(this)}
           onFocus={() => !locked && this.setState({ active: true })}
           onBlur={() => !locked && this.setState({ active: false })}
-          onSubmit={this.onSubmit}
         />
         <label htmlFor={1} className={error && "error"}>
           {error || label}
