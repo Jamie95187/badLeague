@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import TeamForm from '../Forms/TeamForm/TeamForm';
 import TeamBuilder from '../../containers/TeamBuilder/TeamBuilder';
 import ClubBuilder from '../../containers/ClubBuilder/ClubBuilder';
 import Modal from '../../components/UI/Modal/Modal';
@@ -40,7 +41,8 @@ class Account extends Component {
           onClick={() => this.openClubForm(form)}
           >Add Club</button>
         <Modal show={this.state.building}>
-          Henlo
+          <TeamForm />
+            Henlo
           {form}
         </Modal>
       </Aux>

@@ -1,6 +1,8 @@
 import React from 'react';
-import Field from '../InputField/InputField';
-import './Form.css';
+import Field from '../../InputField/InputField';
+import './TeamForm.css';
+
+// This needs to be dynamic
 
 const TeamForm = () => {
   return (
@@ -13,6 +15,7 @@ const TeamForm = () => {
           locked={false}
           active={false}
         />
+        <p></p>
         <Field
           id={2}
           label="Email"
