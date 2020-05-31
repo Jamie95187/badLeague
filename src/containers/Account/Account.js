@@ -11,13 +11,14 @@ class Account extends Component {
   };
 
   openTeamForm = (form) => {
-    this.setState({ building: true });
     form = (
       <div>
-        <TeamBuilder />
+        <TeamForm />
       </div>
     )
     console.log("openTeamForm clicked!");
+    this.setState({ building: true });
+    console.log(this.state.building);
   }
 
   openClubForm = (form) => {
@@ -30,7 +31,7 @@ class Account extends Component {
   }
 
   render(){
-    let form = null;
+    let form = 1;
     return (
       <Aux>
         <h1>Accounts Page</h1>
@@ -41,9 +42,7 @@ class Account extends Component {
           onClick={() => this.openClubForm(form)}
           >Add Club</button>
         <Modal show={this.state.building}>
-          <TeamForm />
-            Henlo
-          {form}
+          {console.log(form)}
         </Modal>
       </Aux>
     )

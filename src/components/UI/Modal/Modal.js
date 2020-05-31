@@ -6,7 +6,8 @@ import Backdrop from '../Backdrop/Backdrop';
 class Modal extends Component {
 
   componentDidMount() {
-    console.log(this.props.children[0])
+    console.log(this.props.children);
+    console.log("Showing status ========== " + this.props.show);
   }
 
   shouldComponentUpdate(nextProps, nextState){
