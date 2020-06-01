@@ -7,42 +7,47 @@ import Aux from '../../hoc/Aux';
 
 class Account extends Component {
   state = {
-    building: false
+    building: false,
+    teamBuilding: false,
+    clubBuilding: false
   };
 
-  openTeamForm = (form) => {
-    form = (
-      <div>
-        <TeamForm />
-      </div>
-    )
-    console.log("openTeamForm clicked!");
-    this.setState({ building: true });
-    console.log(this.state.building);
+  openTeamForm = () => {
+    console.log("HENLO")
+    this.setState({ teamBuilding: true, building: true });
+    console.log(this.state.teamBuilding)
   }
 
-  openClubForm = (form) => {
-    this.setState({ building: true });
-    form =(
-      <div>
-        <ClubBuilder />
-      </div>
-    )
+  openClubForm = () => {
+    this.setState({ clubBuilding: true, building: true });
   }
 
   render(){
-    let form = 1;
+    let form = null;
+    if (this.state.teamBuilding === true && this.state.clubBuilding === false) {
+      form = (
+        <div>
+          <TeamForm />
+        </div>
+      )
+    } else if (this.state.clubBuilding === true && this.state.teamBuilding === false) {
+      form = (
+        <div>
+          <ClubBuilder />
+        </div>
+      )
+    }
     return (
       <Aux>
         <h1>Accounts Page</h1>
         <button
-          onClick={() => this.openTeamForm(form)}
+          onClick={() => this.openTeamForm()}
           >Add Team</button>
         <button
-          onClick={() => this.openClubForm(form)}
+          onClick={() => this.openClubForm}
           >Add Club</button>
         <Modal show={this.state.building}>
-          {console.log(form)}
+          {form}
         </Modal>
       </Aux>
     )
