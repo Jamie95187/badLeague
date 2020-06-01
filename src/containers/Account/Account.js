@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import TeamForm from '../Forms/TeamForm/TeamForm';
-import TeamBuilder from '../../containers/TeamBuilder/TeamBuilder';
-import ClubBuilder from '../../containers/ClubBuilder/ClubBuilder';
 import Modal from '../../components/UI/Modal/Modal';
 import Aux from '../../hoc/Aux';
 
@@ -22,6 +20,10 @@ class Account extends Component {
     this.setState({ clubBuilding: true, building: true });
   }
 
+  buildingCancelled = () => {
+    this.setState({ building: false, clubBuilding: false, teamBuilding: false });
+  }
+
   render(){
     let form = null;
     if (this.state.teamBuilding === true && this.state.clubBuilding === false) {
@@ -33,7 +35,6 @@ class Account extends Component {
     } else if (this.state.clubBuilding === true && this.state.teamBuilding === false) {
       form = (
         <div>
-          <ClubBuilder />
         </div>
       )
     }
@@ -43,10 +44,11 @@ class Account extends Component {
         <button
           onClick={() => this.openTeamForm()}
           >Add Team</button>
+          <p></p>
         <button
           onClick={() => this.openClubForm}
           >Add Club</button>
-        <Modal show={this.state.building}>
+        <Modal show={this.state.building} modalClosed={this.buildingCancelled}>
           {form}
         </Modal>
       </Aux>
