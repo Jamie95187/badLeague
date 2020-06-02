@@ -5,23 +5,21 @@ import Aux from '../../hoc/Aux';
 
 class Account extends Component {
   state = {
-    building: false,
     teamBuilding: false,
     clubBuilding: false
   };
 
   openTeamForm = () => {
-    console.log("HENLO")
-    this.setState({ teamBuilding: true, building: true });
+    this.setState({ teamBuilding: true});
     console.log(this.state.teamBuilding)
   }
 
   openClubForm = () => {
-    this.setState({ clubBuilding: true, building: true });
+    this.setState({ clubBuilding: true});
   }
 
   buildingCancelled = () => {
-    this.setState({ building: false, clubBuilding: false, teamBuilding: false });
+    this.setState({clubBuilding: false, teamBuilding: false });
   }
 
   render(){
@@ -48,7 +46,7 @@ class Account extends Component {
         <button
           onClick={() => this.openClubForm}
           >Add Club</button>
-        <Modal show={this.state.building} modalClosed={this.buildingCancelled}>
+        <Modal show={this.state.clubBuilding || this.state.teamBuilding} modalClosed={this.buildingCancelled}>
           {form}
         </Modal>
       </Aux>
