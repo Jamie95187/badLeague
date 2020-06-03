@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import InputText from '../../InputText/InputText';
+import Button from '../../../components/UI/Button/Button'
 import './TeamForm.css';
 
 // Similar to Contact Data in the Burger App
@@ -33,11 +34,10 @@ class ClubForm extends Component {
             active={false}
           />
         </div>
-
         <div className="form-group">
-          <button className="form-control btn btn-primary" type="submit">
+          <Button className="form-control btn btn-primary" type="submit">
             Submit
-          </button>
+          </Button>
         </div>
       </form>
     );

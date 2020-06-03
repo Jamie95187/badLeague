@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import InputText from '../../InputText/InputText';
 import Selecter from '../../Selecter/Selecter';
+import Button from '../../../components/UI/Button/Button';
 import './TeamForm.css';
 
 // This needs to be dynamic
@@ -36,11 +37,10 @@ class TeamForm extends Component {
           <p></p>
           <Selecter/>
         </div>
-
         <div className="form-group">
-          <button className="form-control btn btn-primary" type="submit">
+          <Button className="form-control btn btn-primary" type="submit">
             Submit
-          </button>
+          </Button>
         </div>
       </form>
     );
