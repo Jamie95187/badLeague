@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import Field from '../../InputField/InputField';
+import InputText from '../../InputText/InputText';
+import Selecter from '../../Selecter/Selecter';
 import './TeamForm.css';
 
 // This needs to be dynamic
 
 class TeamForm extends Component {
-  
+
   componentDidMount() {
     console.log("Mounted TeamForm");
   }
@@ -17,21 +18,23 @@ class TeamForm extends Component {
           Enter your Team's details
         </div>
         <div className="form-group">
-          <Field
+          <InputText
             id={1}
             label="Team Name"
-            predicted="test1MensTeam"
+            predicted=""
             locked={false}
             active={false}
           />
           <p></p>
-          <Field
+          <InputText
             id={2}
-            label="Email"
-            predicted="test1@example.com"
+            label="Contact Email"
+            predicted=""
             locked={false}
             active={false}
           />
+          <p></p>
+          <Selecter/>
         </div>
 
         <div className="form-group">
