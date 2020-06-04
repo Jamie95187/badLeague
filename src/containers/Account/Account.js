@@ -18,8 +18,12 @@ class Account extends Component {
     this.setState({ clubBuilding: true});
   }
 
-  buildingCancelled = () => {
+  clickOutSideModal = () => {
     this.setState({clubBuilding: false, teamBuilding: false });
+  }
+
+  buildContinueHandler = () => {
+    // Handle console log state of team form first.
   }
 
   render(){
@@ -27,7 +31,9 @@ class Account extends Component {
     if (this.state.teamBuilding === true && this.state.clubBuilding === false) {
       form = (
         <div>
-          <TeamForm />
+          <TeamForm
+            buildContinue={this.buildContinueHandler}
+          />
         </div>
       )
     } else if (this.state.clubBuilding === true && this.state.teamBuilding === false) {
@@ -46,7 +52,7 @@ class Account extends Component {
         <button
           onClick={() => this.openClubForm}
           >Add Club</button>
-        <Modal show={this.state.clubBuilding || this.state.teamBuilding} modalClosed={this.buildingCancelled}>
+        <Modal show={this.state.clubBuilding || this.state.teamBuilding} modalClosed={this.clickOutSideModal}>
           {form}
         </Modal>
       </Aux>
