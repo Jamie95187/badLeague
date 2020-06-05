@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import InputText from '../../InputText/InputText';
 import Button from '../../../components/UI/Button/Button'
-import './TeamForm.css';
 
 // Similar to Contact Data in the Burger App
 
@@ -15,12 +14,12 @@ class ClubForm extends Component {
     return (
       <form>
         <div>
-          Enter your Team's details
+          Enter your Club's details
         </div>
         <div className="form-group">
           <InputText
             id={1}
-            label="Team Name"
+            label="Club Name"
             predicted="test1MensTeam"
             locked={false}
             active={false}

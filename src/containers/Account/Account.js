@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import TeamForm from '../Forms/TeamForm/TeamForm';
+import ClubForm from '../Forms/ClubForm/ClubForm';
 import Modal from '../../components/UI/Modal/Modal';
 import Aux from '../../hoc/Aux';
 
@@ -39,6 +40,9 @@ class Account extends Component {
     } else if (this.state.clubBuilding === true && this.state.teamBuilding === false) {
       form = (
         <div>
+          <ClubForm
+            buildContinue={this.buildContinueHandler}
+          />
         </div>
       )
     }
@@ -50,7 +54,7 @@ class Account extends Component {
           >Add Team</button>
           <p></p>
         <button
-          onClick={() => this.openClubForm}
+          onClick={() => this.openClubForm()}
           >Add Club</button>
         <Modal show={this.state.clubBuilding || this.state.teamBuilding} modalClosed={this.clickOutSideModal}>
           {form}

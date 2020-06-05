@@ -38,8 +38,11 @@ class TeamForm extends Component {
           <Selecter/>
         </div>
         <div className="form-group">
-          <Button className="form-control btn btn-primary" type="submit">
+          <Button className="form-control btn btn-primary" clicked={this.props.buildContinue}>
             Submit
+          </Button>
+          <Button clicked={this.props.buildCancel}>
+            Cancel
           </Button>
         </div>
       </form>
