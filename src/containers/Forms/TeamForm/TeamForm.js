@@ -8,6 +8,58 @@ import './TeamForm.css';
 
 class TeamForm extends Component {
 
+  state = {
+    teamForm: {
+        name: {
+          elementType: 'input',
+          elementConfig: {
+            type: 'text',
+            placeholder: 'Your Name'
+          },
+          value: '',
+          // validation: {
+          //   required: true
+          // },
+          // valid: false,
+          // touched: false
+        },
+        email: {
+          elementType: 'input',
+          elementConfig: {
+            type: 'text',
+            placeholder: 'Street'
+          },
+          value: '',
+          // validation: {
+          //   required: true
+          // },
+          // valid: false,
+          // touched: false
+        },
+        club: {
+          elementType: 'select',
+          elementConfig: {
+            options: [
+              {value: 'clubOne', displayValue: 'Club One'},
+              {value: 'clubTwo', displayValue: 'Club Two'}
+            ]
+          },
+          value: 'clubOne',
+          // validation: {},
+          // valid: true
+        },
+        division: {
+          elementType: 'select',
+          elementConfig: {
+            options: [
+              {value: 'mensDivisionOne', displayValue: 'Divsion One Mens'},
+              {value: 'mensDivisionTwo', displayValue: 'Division Two Mens'}
+            ]
+          }
+        }
+      }
+  }
+
   componentDidMount() {
     console.log("Mounted TeamForm");
   }

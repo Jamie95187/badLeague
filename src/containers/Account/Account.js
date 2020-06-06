@@ -8,6 +8,7 @@ class Account extends Component {
   state = {
     teamBuilding: false,
     clubBuilding: false
+    }
   };
 
   openTeamForm = () => {
