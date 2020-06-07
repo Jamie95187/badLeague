@@ -74,6 +74,8 @@ class TeamForm extends Component {
           <InputText
             id={1}
             label="Team Name"
+            value={this.state.teamForm.value}
+            changed={}
             predicted=""
             locked={false}
             active={false}
@@ -82,6 +84,8 @@ class TeamForm extends Component {
           <InputText
             id={2}
             label="Contact Email"
+            value={this.state.teamForm.value}
+            changed={}
             predicted=""
             locked={false}
             active={false}
