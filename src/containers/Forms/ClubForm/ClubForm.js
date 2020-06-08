@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import InputText from '../../InputText/InputText';
+import Input from '../../Input/Input';
 import Button from '../../../components/UI/Button/Button'
 
 // Similar to Contact Data in the Burger App
@@ -17,7 +17,7 @@ class ClubForm extends Component {
           Enter your Club's details
         </div>
         <div className="form-group">
-          <InputText
+          <Input
             id={1}
             label="Club Name"
             predicted="test1MensTeam"
@@ -25,7 +25,7 @@ class ClubForm extends Component {
             active={false}
           />
           <p></p>
-          <InputText
+          <Input
             id={2}
             label="Email"
             predicted="test1@example.com"

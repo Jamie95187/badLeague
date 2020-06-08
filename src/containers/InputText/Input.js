@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
-import classes from './InputText.css';
+import classes from './Input.css';
 
 
-class InputText extends Component {
+class Input extends Component {
 
   state = {
     active: (this.props.locked && this.props.active) || false,
@@ -56,4 +56,4 @@ class InputText extends Component {
   }
 }
 
-export default InputText;
+export default Input;

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import InputText from '../../InputText/InputText';
+import Input from '../../Input/Input';
 import Selecter from '../../Selecter/Selecter';
 import Button from '../../../components/UI/Button/Button';
 import './TeamForm.css';
@@ -65,32 +65,32 @@ class TeamForm extends Component {
   }
 
   render(){
+    const formElementsArray = [];
+    for (let key in this.state.teamForm){
+      formElementsArray.push({
+        id: key,
+        config: this.state.teamForm[key]
+      })
+    }
+    let form = (
+      <form onSubmit={}>
+        {formElementsArray.map(formElement => (
+          <Input
+            key={formElement.id}
+            elementType={formElement.config.elementType}
+            value={formElement.config.value}
+            changed={}
+          >
+        ))}
+      </form>
+    )
     return (
       <form>
         <div>
           Enter your Team's details
         </div>
         <div className="form-group">
-          <InputText
-            id={1}
-            label="Team Name"
-            value={this.state.teamForm.value}
-            changed={}
-            predicted=""
-            locked={false}
-            active={false}
-          />
-          <p></p>
-          <InputText
-            id={2}
-            label="Contact Email"
-            value={this.state.teamForm.value}
-            changed={}
-            predicted=""
-            locked={false}
-            active={false}
-          />
-          <p></p>
+          {form}
           <Selecter/>
         </div>
         <div className="form-group">
