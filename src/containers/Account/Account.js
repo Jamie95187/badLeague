@@ -8,7 +8,6 @@ class Account extends Component {
   state = {
     teamBuilding: false,
     clubBuilding: false
-    }
   };
 
   openTeamForm = () => {
@@ -28,7 +27,7 @@ class Account extends Component {
     // Handle console log state of team form first.
   }
 
-  render(){
+  render() {
     let form = null;
     if (this.state.teamBuilding === true && this.state.clubBuilding === false) {
       form = (

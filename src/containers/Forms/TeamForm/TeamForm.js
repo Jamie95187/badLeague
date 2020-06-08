@@ -73,14 +73,16 @@ class TeamForm extends Component {
       })
     }
     let form = (
-      <form onSubmit={}>
+      <form onSubmit={null}>
         {formElementsArray.map(formElement => (
           <Input
             key={formElement.id}
             elementType={formElement.config.elementType}
             value={formElement.config.value}
-            changed={}
-          >
+            changed={null}
+            locked={false}
+            active={false}
+          />
         ))}
       </form>
     )

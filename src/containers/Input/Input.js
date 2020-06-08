@@ -39,11 +39,11 @@ class Input extends Component {
           predicted.includes(value) && <p className="predicted">{predicted}</p>}
         <input
           id={this.props.id}
-          {...props.elementConfig}
+          {...this.props.elementConfig}
           type="text"
-          value={props.value}
+          value={this.props.value}
           placeholder={label}
-          onChange={props.changed}
+          onChange={this.props.changed}
           onKeyPress={this.handleKeyPress.bind(this)}
           onFocus={() => !locked && this.setState({ active: true })}
           onBlur={() => !locked && this.setState({ active: false })}
