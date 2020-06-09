@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
-
+import Select from 'react-select';
 import classes from './Input.css';
 
 
 class Input extends Component {
+
+  componentWillMount() {
+    console.log(this.props);
+  }
 
   state = {
     active: (this.props.locked && this.props.active) || false,
@@ -26,10 +30,33 @@ class Input extends Component {
   }
 
   render() {
+    let inputElement = null;
+    let options = null;
+
     const { active, value, error, label } = this.state;
     const { predicted, locked } = this.props;
     const fieldClassName = `field ${(locked ? active : active || value) &&
       "active"} ${locked && !active && "locked"}`;
+
+    switch ( this.props.elementType ) {
+      case ('input'):
+        inputElement = <input
+          {...this.props.elementConfig}
+          value={this.props.value}
+          onChange={this.props.changed} />;
+        break;
+      case ('select'):
+        {options = this.props.elementConfig.options}
+        inputElement = (
+          <Select
+            options={options}/>
+        )
+        break;
+      default: inputElement = <input
+        {...this.props.elementConfig}
+        value={this.props.value}
+        onChange={this.props.changed} />;
+    }
 
     return (
       <div className={fieldClassName}>

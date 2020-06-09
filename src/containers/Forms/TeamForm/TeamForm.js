@@ -40,11 +40,10 @@ class TeamForm extends Component {
           elementType: 'select',
           elementConfig: {
             options: [
-              {value: 'clubOne', displayValue: 'Club One'},
-              {value: 'clubTwo', displayValue: 'Club Two'}
+              {value: 'clubOne', label: 'Club One'},
+              {value: 'clubTwo', label: 'Club Two'}
             ]
-          },
-          value: 'clubOne',
+          }
           // validation: {},
           // valid: true
         },
@@ -52,8 +51,8 @@ class TeamForm extends Component {
           elementType: 'select',
           elementConfig: {
             options: [
-              {value: 'mensDivisionOne', displayValue: 'Divsion One Mens'},
-              {value: 'mensDivisionTwo', displayValue: 'Division Two Mens'}
+              {value: 'mensDivisionOne', label: 'Divsion One Mens'},
+              {value: 'mensDivisionTwo', label: 'Division Two Mens'}
             ]
           }
         }
@@ -77,6 +76,8 @@ class TeamForm extends Component {
         {formElementsArray.map(formElement => (
           <Input
             key={formElement.id}
+            label={formElement.id}
+            elementConfig={formElement.config.elementConfig}
             elementType={formElement.config.elementType}
             value={formElement.config.value}
             changed={null}
@@ -93,7 +94,6 @@ class TeamForm extends Component {
         </div>
         <div className="form-group">
           {form}
-          <Selecter/>
         </div>
         <div className="form-group">
           <Button className="form-control btn btn-primary" clicked={this.props.buildContinue}>
