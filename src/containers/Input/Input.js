@@ -41,9 +41,13 @@ class Input extends Component {
     switch ( this.props.elementType ) {
       case ('input'):
         inputElement = <input
+          id={this.props.id}
+          type="text"
           {...this.props.elementConfig}
           value={this.props.value}
-          onChange={this.props.changed} />;
+          onChange={this.props.changed}
+          onFocus={() => !locked && this.setState({ active: true })}
+          onBlur={() => !locked && this.setState({ active: false })} />;
         break;
       case ('select'):
         {options = this.props.elementConfig.options}
@@ -64,17 +68,7 @@ class Input extends Component {
           value &&
           predicted &&
           predicted.includes(value) && <p className="predicted">{predicted}</p>}
-        <input
-          id={this.props.id}
-          {...this.props.elementConfig}
-          type="text"
-          value={this.props.value}
-          placeholder={label}
-          onChange={this.props.changed}
-          onKeyPress={this.handleKeyPress.bind(this)}
-          onFocus={() => !locked && this.setState({ active: true })}
-          onBlur={() => !locked && this.setState({ active: false })}
-        />
+        {inputElement}
         <label htmlFor={1} className={error && "error"}>
           {error || label}
         </label>
