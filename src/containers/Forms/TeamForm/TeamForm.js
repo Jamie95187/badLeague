@@ -59,6 +59,39 @@ class TeamForm extends Component {
       }
   }
 
+  updateObject = (oldObject, updatedProperties) => {
+    return {
+      ...oldObject,
+      ...updatedProperties
+    };
+  };
+
+  teamHandler = ( event ) => {
+    event.preventDefault();
+    const formData = {};
+    for (let formElementIdentifier in this.state.teamForm) {
+      formData[formElementIdentifier] = this.state.teamForm[formElementIdentifier].value;
+    }
+    const team = {
+
+    }
+  }
+
+  inputChangedHandler = (event, inputIdentifier) => {
+    const updatedFormElement = this.updateObject(this.state.teamForm[inputIdentifier], {
+      value: event.target.value
+    });
+
+    const updatedTeamForm = this.updateObject(this.state.teamForm, {
+      [inputIdentifier]: updatedFormElement
+    });
+
+    updatedTeamForm[inputIdentifier] = updatedFormElement;
+
+    this.setState({teamForm: updatedTeamForm});
+
+  }
+
   componentDidMount() {
     console.log("Mounted TeamForm");
   }
@@ -80,7 +113,7 @@ class TeamForm extends Component {
             elementConfig={formElement.config.elementConfig}
             elementType={formElement.config.elementType}
             value={formElement.config.value}
-            changed={null}
+            changed={(event) => this.inputChangedHandler(event, formElement.id)}
             locked={false}
             active={false}
           />
@@ -88,7 +121,7 @@ class TeamForm extends Component {
       </form>
     )
     return (
-      <form>
+      <div>
         <div>
           Enter your Team's details
         </div>
@@ -103,7 +136,7 @@ class TeamForm extends Component {
             Cancel
           </Button>
         </div>
-      </form>
+      </div>
     );
   };
 };

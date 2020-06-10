@@ -57,21 +57,18 @@ class Input extends Component {
         )
         break;
       default: inputElement = <input
+        id={this.props.id}
+        type="text"
         {...this.props.elementConfig}
         value={this.props.value}
-        onChange={this.props.changed} />;
+        onChange={this.props.changed}
+        onFocus={() => !locked && this.setState({ active: true })}
+        onBlur={() => !locked && this.setState({ active: false })} />;
     }
 
     return (
       <div className={fieldClassName}>
-        {active &&
-          value &&
-          predicted &&
-          predicted.includes(value) && <p className="predicted">{predicted}</p>}
         {inputElement}
-        <label htmlFor={1} className={error && "error"}>
-          {error || label}
-        </label>
       </div>
     );
   }
