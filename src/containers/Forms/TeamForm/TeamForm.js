@@ -27,7 +27,7 @@ class TeamForm extends Component {
           elementType: 'input',
           elementConfig: {
             type: 'text',
-            placeholder: 'Street'
+            placeholder: 'Address of venue'
           },
           value: '',
           // validation: {
@@ -43,7 +43,8 @@ class TeamForm extends Component {
               {value: 'clubOne', label: 'Club One'},
               {value: 'clubTwo', label: 'Club Two'}
             ]
-          }
+          },
+          value: 'clubOne'
           // validation: {},
           // valid: true
         },
@@ -54,9 +55,17 @@ class TeamForm extends Component {
               {value: 'mensDivisionOne', label: 'Divsion One Mens'},
               {value: 'mensDivisionTwo', label: 'Division Two Mens'}
             ]
-          }
+          },
+          value: 'mensDivisionOne'
         }
       }
+  }
+
+  buildContinue = () => {
+    // API request to post details onto site
+    for (let formElementIdentifier in this.state.teamForm) {
+      console.log(this.state.teamForm[formElementIdentifier].value)
+    }
   }
 
   updateObject = (oldObject, updatedProperties) => {
@@ -65,17 +74,6 @@ class TeamForm extends Component {
       ...updatedProperties
     };
   };
-
-  teamHandler = ( event ) => {
-    event.preventDefault();
-    const formData = {};
-    for (let formElementIdentifier in this.state.teamForm) {
-      formData[formElementIdentifier] = this.state.teamForm[formElementIdentifier].value;
-    }
-    const team = {
-
-    }
-  }
 
   inputChangedHandler = (event, inputIdentifier) => {
     const updatedFormElement = this.updateObject(this.state.teamForm[inputIdentifier], {
@@ -129,7 +127,7 @@ class TeamForm extends Component {
           {form}
         </div>
         <div className="form-group">
-          <Button className="form-control btn btn-primary" clicked={this.props.buildContinue}>
+          <Button className="form-control btn btn-primary" clicked={() => this.buildContinue()}>
             Submit
           </Button>
           <Button clicked={this.props.buildCancel}>

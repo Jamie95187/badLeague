@@ -23,26 +23,18 @@ class Account extends Component {
     this.setState({clubBuilding: false, teamBuilding: false });
   }
 
-  buildContinueHandler = () => {
-    // Handle console log state of team form first.
-  }
-
   render() {
     let form = null;
     if (this.state.teamBuilding === true && this.state.clubBuilding === false) {
       form = (
         <div>
-          <TeamForm
-            buildContinue={this.buildContinueHandler}
-          />
+          <TeamForm />
         </div>
       )
     } else if (this.state.clubBuilding === true && this.state.teamBuilding === false) {
       form = (
         <div>
-          <ClubForm
-            buildContinue={this.buildContinueHandler}
-          />
+          <ClubForm />
         </div>
       )
     }
