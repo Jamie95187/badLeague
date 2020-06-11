@@ -89,11 +89,7 @@ class TeamForm extends Component {
     this.setState({teamForm: updatedTeamForm});
 
   }
-
-  componentDidMount() {
-    console.log("Mounted TeamForm");
-  }
-
+  
   render(){
     const formElementsArray = [];
     for (let key in this.state.teamForm){

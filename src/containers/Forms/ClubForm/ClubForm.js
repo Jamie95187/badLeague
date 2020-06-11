@@ -5,11 +5,7 @@ import Button from '../../../components/UI/Button/Button'
 // Similar to Contact Data in the Burger App
 
 class ClubForm extends Component {
-
-  componentDidMount() {
-    console.log("Mounted TeamForm");
-  }
-
+  
   render(){
     return (
       <form>
