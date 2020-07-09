@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import TeamForm from '../Forms/TeamForm/TeamForm';
 import ClubForm from '../Forms/ClubForm/ClubForm';
 import Modal from '../../components/UI/Modal/Modal';
-import Aux from '../../hoc/Aux';
+import Aux from '../../hoc/AuxComp';
 
 class Account extends Component {
   state = {
