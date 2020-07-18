@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Input from '../../Input/Input';
 import Selecter from '../../Selecter/Selecter';
 import Button from '../../../components/UI/Button/Button';
-import axios from '../../../axios-team'
+import axios from '../../../axios-teams';
 import './TeamForm.css';
 
 // This needs to be dynamic
@@ -64,10 +64,15 @@ class TeamForm extends Component {
 
   buildContinue = () => {
     // API request to post details onto site
-    axios.post('/teams.json')
-    for (let formElementIdentifier in this.state.teamForm) {
-      console.log(this.state.teamForm[formElementIdentifier].value)
-    }
+    // const teamFormParsed = {
+    //
+    // }
+    // for (let key in this.stateForm)
+    axios.post('/teams.json', this.state.teamForm)
+      .then(response => console.log(response))
+    // for (let formElementIdentifier in this.state.teamForm) {
+    //   console.log(this.state.teamForm[formElementIdentifier].value)
+    // }
   }
 
   updateObject = (oldObject, updatedProperties) => {
