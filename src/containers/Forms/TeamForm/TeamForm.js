@@ -64,11 +64,15 @@ class TeamForm extends Component {
 
   buildContinue = () => {
     // API request to post details onto site
-    // const teamFormParsed = {
-    //
-    // }
-    // for (let key in this.stateForm)
-    axios.post('/teams.json', this.state.teamForm)
+    const teamFormParsed = [];
+    for (let key in this.state.teamForm) {
+      teamFormParsed.push({
+        id: key,
+        value: this.state.teamForm[key].value
+      })
+    }
+    console.log(teamFormParsed);
+    axios.post('/teams.json', teamFormParsed)
       .then(response => console.log(response))
     // for (let formElementIdentifier in this.state.teamForm) {
     //   console.log(this.state.teamForm[formElementIdentifier].value)

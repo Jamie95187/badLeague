@@ -5,9 +5,9 @@ import classes from './Input.css';
 
 class Input extends Component {
 
-  componentWillMount() {
-    console.log(this.props);
-  }
+  // componentWillMount() {
+  //   console.log(this.props);
+  // }
 
   state = {
     active: (this.props.locked && this.props.active) || false,
