@@ -16,11 +16,6 @@ class ClubForm extends Component {
             placeholder: 'Your Club\'s Name'
           },
           value: '',
-          // validation: {
-          //   required: true
-          // },
-          // valid: false,
-          // touched: false
         },
         email: {
           elementType: 'input',
@@ -29,11 +24,6 @@ class ClubForm extends Component {
             placeholder: 'Contact Email'
           },
           value: '',
-          // validation: {
-          //   required: true
-          // },
-          // valid: false,
-          // touched: false
         },
         phone: {
           elementType: 'input',
@@ -54,35 +44,79 @@ class ClubForm extends Component {
       }
   }
 
+  buildContinue = () => {
+    // API request to post details onto site
+    const clubFormParsed = {};
+    for (let key in this.state.clubForm) {
+      clubFormParsed[key] = this.state.clubForm[key].value
+    }
+    axios.post('/clubs.json', clubFormParsed)
+      .then(response => console.log(response))
+  }
+
+  updateObject = (oldObject, updatedProperties) => {
+    return {
+      ...oldObject,
+      ...updatedProperties
+    };
+  };
+
+  inputChangedHandler = (event, inputIdentifier) => {
+    const updatedFormElement = this.updateObject(this.state.clubForm[inputIdentifier], {
+      value: event.target.value
+    });
+
+    const updatedTeamForm = this.updateObject(this.state.clubForm, {
+      [inputIdentifier]: updatedFormElement
+    });
+
+    updatedTeamForm[inputIdentifier] = updatedFormElement;
+
+    this.setState({clubForm: updatedTeamForm});
+
+  }
+
   render(){
+    const formElementsArray = [];
+    for (let key in this.state.clubForm){
+      formElementsArray.push({
+        id: key,
+        config: this.state.clubForm[key]
+      })
+    }
+    let form = (
+      <form onSubmit={null}>
+        {formElementsArray.map(formElement => (
+          <Input
+            key={formElement.id}
+            label={formElement.id}
+            elementConfig={formElement.config.elementConfig}
+            elementType={formElement.config.elementType}
+            value={formElement.config.value}
+            changed={(event) => this.inputChangedHandler(event, formElement.id)}
+            locked={false}
+            active={false}
+          />
+        ))}
+      </form>
+    )
     return (
-      <form>
+      <div>
         <div>
           Enter your Club's details
         </div>
         <div className="form-group">
-          <Input
-            id={1}
-            label="Club Name"
-            predicted="test1MensTeam"
-            locked={false}
-            active={false}
-          />
-          <p></p>
-          <Input
-            id={2}
-            label="Email"
-            predicted="test1@example.com"
-            locked={false}
-            active={false}
-          />
+          {form}
         </div>
         <div className="form-group">
-          <Button className="form-control btn btn-primary" type="submit">
+          <Button className="form-control btn btn-primary" clicked={() => this.buildContinue()}>
             Submit
           </Button>
+          <Button clicked={this.props.buildCancel}>
+            Cancel
+          </Button>
         </div>
-      </form>
+      </div>
     );
   };
 };

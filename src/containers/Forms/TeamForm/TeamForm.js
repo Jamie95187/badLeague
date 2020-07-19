@@ -28,7 +28,7 @@ class TeamForm extends Component {
           elementType: 'input',
           elementConfig: {
             type: 'text',
-            placeholder: 'Address of venue'
+            placeholder: 'Contact Email'
           },
           value: '',
           // validation: {
