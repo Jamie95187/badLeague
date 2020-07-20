@@ -62,10 +62,23 @@ class TeamForm extends Component {
       }
   }
 
+  getDataPromise() {
+    return axios({
+        url: 'https://badminton-league-49e71.firebaseio.com/clubs.json',
+        method: 'get',
+        timeout: 8000
+      })
+      .then(res => res.data)
+      .catch (err => console.error(err))
+  }
+
   componentWillMount() {
-    axios.get('https://badminton-league-49e71.firebaseio.com/clubs.json')
-      .then(response => console.log(response))
-      .catch(error => console.log("Error did not receive response"))
+    let clubs = {}
+    this.getDataPromise()
+      .then(res => console.log(res))
+    // axios.get('https://badminton-league-49e71.firebaseio.com/clubs.json')
+    //   .then(response => clubs = response.data)
+    //   .catch(err => console.log("Error did not receive response"))
   }
 
   buildContinue = () => {
