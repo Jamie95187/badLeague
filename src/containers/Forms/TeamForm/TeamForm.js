@@ -62,6 +62,12 @@ class TeamForm extends Component {
       }
   }
 
+  componentWillMount() {
+    axios.get('https://badminton-league-49e71.firebaseio.com/clubs.json')
+      .then(response => console.log(response))
+      .catch(error => console.log("Error did not receive response"))
+  }
+
   buildContinue = () => {
     // API request to post details onto site
     const teamFormParsed = {};
