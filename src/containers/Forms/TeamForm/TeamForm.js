@@ -73,9 +73,12 @@ class TeamForm extends Component {
   }
 
   componentWillMount() {
-    let clubs = {}
-    this.getDataPromise()
-      .then(res => console.log(res))
+    let clubs = []
+    this.getDataPromise().then(function(result){
+      for (const club in result) {
+        clubs.push({value: result[club['name']], label: result[club['name']]})
+      }
+    })
     // axios.get('https://badminton-league-49e71.firebaseio.com/clubs.json')
     //   .then(response => clubs = response.data)
     //   .catch(err => console.log("Error did not receive response"))
