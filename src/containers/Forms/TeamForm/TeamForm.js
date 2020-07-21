@@ -41,8 +41,7 @@ class TeamForm extends Component {
           elementType: 'select',
           elementConfig: {
             options: [
-              {value: 'clubOne', label: 'Club One'},
-              {value: 'clubTwo', label: 'Club Two'}
+              {value: 'Loading...', label: 'Loading...'}
             ]
           },
           value: 'clubOne'
@@ -79,10 +78,20 @@ class TeamForm extends Component {
         clubs.push({value: result[club].name, label: result[club].name})
       }
     })
-  }
+    const updatedFormElement = this.updateObject(this.state.teamForm['club'], {
+      elementConfig: {
+        options: clubs
+      }
+    });
 
-  componentWillMount() {
-    this.populateOption()
+    const updatedTeamForm = this.updateObject(this.state.teamForm, {
+      ['club']: updatedFormElement
+    });
+
+    updatedTeamForm['club'] = updatedFormElement;
+
+    this.setState({teamForm: updatedTeamForm})
+
   }
 
   buildContinue = () => {
@@ -91,12 +100,8 @@ class TeamForm extends Component {
     for (let key in this.state.teamForm) {
       teamFormParsed[key] = this.state.teamForm[key].value
     }
-    console.log(teamFormParsed);
     axios.post('/teams.json', teamFormParsed)
       .then(response => console.log(response))
-    // for (let formElementIdentifier in this.state.teamForm) {
-    //   console.log(this.state.teamForm[formElementIdentifier].value)
-    // }
   }
 
   updateObject = (oldObject, updatedProperties) => {
@@ -145,6 +150,7 @@ class TeamForm extends Component {
         ))}
       </form>
     )
+    this.populateOption()
     return (
       <div>
         <div>

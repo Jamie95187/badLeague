@@ -12,7 +12,6 @@ class Account extends Component {
 
   openTeamForm = () => {
     this.setState({ teamBuilding: true});
-    console.log(this.state.teamBuilding)
   }
 
   openClubForm = () => {
