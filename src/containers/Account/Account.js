@@ -11,15 +11,15 @@ class Account extends Component {
   };
 
   openTeamForm = () => {
-    this.setState({ teamBuilding: true});
+    this.setState({ teamBuilding: true });
   }
 
   openClubForm = () => {
-    this.setState({ clubBuilding: true});
+    this.setState({ clubBuilding: true });
   }
 
   clickOutSideModal = () => {
-    this.setState({clubBuilding: false, teamBuilding: false });
+    this.setState({ clubBuilding: false, teamBuilding: false });
   }
 
   render() {

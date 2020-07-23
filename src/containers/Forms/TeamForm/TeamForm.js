@@ -58,10 +58,11 @@ class TeamForm extends Component {
           },
           value: 'mensDivisionOne'
         }
-      }
+      },
+      modalOpen: true
   }
 
-  getDataPromise() {
+  getClubDataPromise() {
     return axios({
         url: 'https://badminton-league-49e71.firebaseio.com/clubs.json',
         method: 'get',
@@ -71,9 +72,9 @@ class TeamForm extends Component {
       .catch (err => console.error(err))
   }
 
-  populateOption = async () => {
+  populateClubOptions = async () => {
     let clubs = []
-    const result = await this.getDataPromise().then(function(result){
+    const result = await this.getClubDataPromise().then(function(result){
       for (const club in result) {
         clubs.push({value: result[club].name, label: result[club].name})
       }
@@ -102,6 +103,10 @@ class TeamForm extends Component {
     }
     axios.post('/teams.json', teamFormParsed)
       .then(response => console.log(response))
+  }
+
+  buildCancel = () => {
+    this.setState({modalOpen: false})
   }
 
   updateObject = (oldObject, updatedProperties) => {
@@ -150,9 +155,9 @@ class TeamForm extends Component {
         ))}
       </form>
     )
-    this.populateOption()
+    this.populateClubOptions()
     return (
-      <div>
+      <div modalState={this.state.modalOpen}>
         <div>
           Enter your Team's details
         </div>
@@ -163,7 +168,7 @@ class TeamForm extends Component {
           <Button className="form-control btn btn-primary" clicked={() => this.buildContinue()}>
             Submit
           </Button>
-          <Button clicked={this.props.buildCancel}>
+          <Button clicked={() => this.buildCancel()}>
             Cancel
           </Button>
         </div>
