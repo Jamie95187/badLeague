@@ -58,8 +58,7 @@ class TeamForm extends Component {
           },
           value: 'mensDivisionOne'
         }
-      },
-      modalOpen: true
+      }
   }
 
   getClubDataPromise() {
@@ -103,10 +102,6 @@ class TeamForm extends Component {
     }
     axios.post('/teams.json', teamFormParsed)
       .then(response => console.log(response))
-  }
-
-  buildCancel = () => {
-    this.setState({modalOpen: false})
   }
 
   updateObject = (oldObject, updatedProperties) => {
@@ -157,7 +152,7 @@ class TeamForm extends Component {
     )
     this.populateClubOptions()
     return (
-      <div modalState={this.state.modalOpen}>
+      <div>
         <div>
           Enter your Team's details
         </div>
@@ -168,7 +163,7 @@ class TeamForm extends Component {
           <Button className="form-control btn btn-primary" clicked={() => this.buildContinue()}>
             Submit
           </Button>
-          <Button clicked={() => this.buildCancel()}>
+          <Button clicked={() => this.props.cancelFunc()}>
             Cancel
           </Button>
         </div>

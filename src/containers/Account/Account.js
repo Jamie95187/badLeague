@@ -18,6 +18,10 @@ class Account extends Component {
     this.setState({ clubBuilding: true });
   }
 
+  buildCancel = () => {
+    this.setState({ teamBuilding: false })
+  }
+
   clickOutSideModal = () => {
     this.setState({ clubBuilding: false, teamBuilding: false });
   }
@@ -27,7 +31,7 @@ class Account extends Component {
     if (this.state.teamBuilding === true && this.state.clubBuilding === false) {
       form = (
         <div>
-          <TeamForm />
+          <TeamForm cancelFunc={() => this.buildCancel()}/>
         </div>
       )
     } else if (this.state.clubBuilding === true && this.state.teamBuilding === false) {
