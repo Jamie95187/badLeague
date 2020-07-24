@@ -112,7 +112,7 @@ class ClubForm extends Component {
           <Button className="form-control btn btn-primary" clicked={() => this.buildContinue()}>
             Submit
           </Button>
-          <Button clicked={this.props.buildCancel}>
+          <Button clicked={() => this.props.cancelFunc()}>
             Cancel
           </Button>
         </div>
