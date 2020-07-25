@@ -18,10 +18,10 @@ class TeamForm extends Component {
             placeholder: 'Your Name'
           },
           value: '',
-          // validation: {
-          //   required: true
-          // },
-          // valid: false,
+          validation: {
+            required: true
+          },
+          valid: false,
           // touched: false
         },
         email: {
@@ -31,10 +31,10 @@ class TeamForm extends Component {
             placeholder: 'Contact Email'
           },
           value: '',
-          // validation: {
-          //   required: true
-          // },
-          // valid: false,
+          validation: {
+            required: true
+          },
+          valid: false,
           // touched: false
         },
         club: {
@@ -44,8 +44,10 @@ class TeamForm extends Component {
               {value: 'Loading...', label: 'Loading...'}
             ]
           },
-          value: 'clubOne'
-          // validation: {},
+          value: 'clubOne'.
+          validation: {
+            required: true
+          },
           // valid: true
         },
         division: {
@@ -124,6 +126,16 @@ class TeamForm extends Component {
 
     this.setState({teamForm: updatedTeamForm});
 
+  }
+
+  checkValidity(value, rules) {
+    let isValid = false;
+
+    if (rules.required) {
+      isValid = valid.trim() !== '';
+    }
+
+    return isValid;
   }
 
   render(){
