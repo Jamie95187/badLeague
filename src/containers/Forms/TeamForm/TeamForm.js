@@ -44,7 +44,7 @@ class TeamForm extends Component {
               {value: 'Loading...', label: 'Loading...'}
             ]
           },
-          value: 'clubOne'.
+          value: 'clubOne',
           validation: {
             required: true
           },
@@ -123,6 +123,8 @@ class TeamForm extends Component {
     });
 
     updatedTeamForm[inputIdentifier] = updatedFormElement;
+    updatedFormElement.valid = this.checkValidity(updatedFormElement.value, updatedFormElement.validation);
+    console.log(updatedFormElement);
 
     this.setState({teamForm: updatedTeamForm});
 
@@ -131,8 +133,9 @@ class TeamForm extends Component {
   checkValidity(value, rules) {
     let isValid = false;
 
+    // Check if this is true
     if (rules.required) {
-      isValid = valid.trim() !== '';
+      isValid = value.trim() !== '';
     }
 
     return isValid;
