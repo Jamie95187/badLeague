@@ -124,18 +124,17 @@ class TeamForm extends Component {
 
     updatedTeamForm[inputIdentifier] = updatedFormElement;
     updatedFormElement.valid = this.checkValidity(updatedFormElement.value, updatedFormElement.validation);
-    console.log(updatedFormElement);
-
+    console.log(updatedFormElement)
     this.setState({teamForm: updatedTeamForm});
 
   }
 
   checkValidity(value, rules) {
-    let isValid = false;
+    let isValid = true;
 
     // Check if this is true
     if (rules.required) {
-      isValid = value.trim() !== '';
+      isValid = value.trim() !== '' && isValid;
     }
 
     return isValid;

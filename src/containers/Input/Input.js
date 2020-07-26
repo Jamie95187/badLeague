@@ -5,10 +5,6 @@ import classes from './Input.css';
 
 class Input extends Component {
 
-  // componentWillMount() {
-  //   console.log(this.props);
-  // }
-
   state = {
     active: (this.props.locked && this.props.active) || false,
     value: this.props.value || "",
@@ -19,14 +15,6 @@ class Input extends Component {
   changeValue(event) {
     const value = event.target.value;
     this.setState({ value, error: "" });
-    // console.log(this.state.value)
-  }
-
-  // Pressing 'Enter' auto completes the field into the predicted value
-  handleKeyPress(event) {
-    if (event.which === 13) {
-      this.setState({ value: this.props.predicted });
-    }
   }
 
   render() {
@@ -34,7 +22,7 @@ class Input extends Component {
     let options = null;
 
     const { active, value, error, label } = this.state;
-    const { predicted, locked } = this.props;
+    const { locked } = this.props;
     const fieldClassName = `field ${(locked ? active : active || value) &&
       "active"} ${locked && !active && "locked"}`;
 
