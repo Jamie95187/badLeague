@@ -22,7 +22,7 @@ class TeamForm extends Component {
             required: true
           },
           valid: false,
-          // touched: false
+          touched: false
         },
         email: {
           elementType: 'input',
@@ -35,7 +35,7 @@ class TeamForm extends Component {
             required: true
           },
           valid: false,
-          // touched: false
+          touched: false
         },
         club: {
           elementType: 'select',
@@ -48,7 +48,8 @@ class TeamForm extends Component {
           validation: {
             required: true
           },
-          // valid: true
+          valid: true,
+          touched: false
         },
         division: {
           elementType: 'select',
@@ -58,7 +59,8 @@ class TeamForm extends Component {
               {value: 'mensDivisionTwo', label: 'Division Two Mens'}
             ]
           },
-          value: 'mensDivisionOne'
+          value: 'mensDivisionOne',
+          valid: true
         }
       }
   }
@@ -124,6 +126,7 @@ class TeamForm extends Component {
 
     updatedTeamForm[inputIdentifier] = updatedFormElement;
     updatedFormElement.valid = this.checkValidity(updatedFormElement.value, updatedFormElement.validation);
+    updatedFormElement.touched = true;
     console.log(updatedFormElement)
     this.setState({teamForm: updatedTeamForm});
 
@@ -157,6 +160,9 @@ class TeamForm extends Component {
             elementConfig={formElement.config.elementConfig}
             elementType={formElement.config.elementType}
             value={formElement.config.value}
+            invalid={!formElement.config.valid}
+            shouldValidate={formElement.config.validation}
+            touched={formElement.config.touched}
             changed={(event) => this.inputChangedHandler(event, formElement.id)}
             locked={false}
             active={false}
